@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Swami Samartha Blessings</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(180deg, #f4f6ff, #fdf1e6, #fffdf8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: "Segoe Script", cursive;
+}
+
+/* 🌼 MAIN HEADING – COLOR CHANGED */
+h1 {
+    font-size: 58px;
+    color: #dca84f; /* calm blue-lavender */
+    text-shadow: 0 0 10px #cfd6ff, 0 0 25px #ffffff;
+    animation: glow 3s ease-in-out infinite;
+}
+
+/* SUB HEADING */
+h2 {
+    font-size: 28px;
+    color: #c9a24d;
+    margin-top: -10px;
+    text-shadow: 0 0 10px #ffffff;
+}
+
+/* MESSAGE */
+p {
+    font-size: 24px;
+    color: #6b5e7a;
+    text-align: center;
+    max-width: 720px;
+    line-height: 1.7;
+    margin-top: 18px;
+    text-shadow: 0 0 6px #ffffff;
+    animation: float 4s ease-in-out infinite;
+}
+
+/* SWAMI TEXT */
+.swami {
+    margin-top: 22px;
+    font-size: 34px;
+    color: #b8963f;
+    text-shadow: 0 0 16px #f5e7b2;
+}
+
+/* ANIMATIONS */
+@keyframes glow {
+    0%,100% {
+        text-shadow: 0 0 10px #cfd6ff, 0 0 25px #ffffff;
+    }
+    50% {
+        text-shadow: 0 0 20px #b9c3ff, 0 0 45px #ffffff;
+    }
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* 🌸 FLOWERS – SLOWED DOWN */
+.flower {
+    position: absolute;
+    animation: rise linear infinite;
+    opacity: 0.9;
+}
+
+@keyframes rise {
+    from {
+        transform: translateY(110vh) scale(0.9) rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-15vh) scale(1.4) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🌼 Happy New Year 2026 🌼</h1>
+<h2>Divine wishes with peace & grace</h2>
+
+<p>
+May Swami Samartha bless you with<br>
+peace, strength, success and clarity ✨<br>
+May your path always shine bright 🌿
+</p>
+
+<div class="swami">॥ श्री स्वामी समर्थ ॥</div>
+
+<script>
+const flowers = ["🌼","🌷","🪷","🌸","✨","🕊️"];
+
+function createFlower() {
+    const span = document.createElement("span");
+    span.className = "flower";
+    span.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+    span.style.left = Math.random() * 100 + "vw";
+    span.style.fontSize = (20 + Math.random() * 28) + "px";
+
+    /* ⏳ SLOWER FLOWERS */
+    span.style.animationDuration = (14 + Math.random() * 10) + "s";
+
+    document.body.appendChild(span);
+    setTimeout(() => span.remove(), 25000);
+}
+
+/* initial flowers */
+for (let i = 0; i < 60; i++) {
+    setTimeout(createFlower, i * 200);
+}
+
+/* slower interval */
+setInterval(createFlower, 600);
+</script>
+
+</body>
+</html>
